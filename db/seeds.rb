@@ -23,5 +23,5 @@ Circle.create!(name: "雷門中サッカー部",
                email: email,
                password:password,
                password_confirmation: password,
-               deadline: null)
+               deadline: nil)
 end
