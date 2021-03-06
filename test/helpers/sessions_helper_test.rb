@@ -7,7 +7,7 @@ class SessionsHelperTest < ActionView::TestCase
   end
 
   test "current_user returns right user when session is nil" do
-    assert_equal @circle, current_user
+    assert_equal @circle, current_circle
     assert is_logged_in?
   end
 

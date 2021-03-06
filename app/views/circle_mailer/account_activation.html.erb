@@ -1,0 +1,10 @@
+<h1>Town Circle</h1>
+
+<p>Hi <%= @circle.name %>,</p>
+
+<p>
+Welcome to the Town Circle! Click on the link below to activate your account:
+</p>
+
+<%= link_to "Activate", edit_account_activation_url(@circle.activation_token,
+                                                    email: @circle.email) %>

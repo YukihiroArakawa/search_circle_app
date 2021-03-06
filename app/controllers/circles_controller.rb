@@ -18,9 +18,9 @@ class CirclesController < ApplicationController
   def create
     @circle = Circle.new(circle_params)
     if @circle.save
-      log_in @circle
-      flash[:success] = "ご登録ありがとうございます！"
-      redirect_to @circle
+      @circle.send_activation_email
+      flash[:info] = "アカウントを有効化するために送信されたメールのリンクをクリックしてください！"
+      redirect_to root_url
     else
       render 'new'
     end

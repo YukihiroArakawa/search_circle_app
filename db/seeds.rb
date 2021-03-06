@@ -1,3 +1,5 @@
+require "date"
+d = Date.today
 
 #メインのサンプルユーザを一人作成する
 Circle.create!(name: "雷門中サッカー部",
@@ -10,9 +12,11 @@ Circle.create!(name: "雷門中サッカー部",
                sex: 7,
                introduction: "サッカーやろうぜ！",
                event: "毎日グランドでサッカーやってます！",
-               deadline: 2021-03-12,
+               deadline: "#{d.year}-#{d.month}-#{d.day}",
                sns: "https://www.inazuma.jp/",
-               admin: true)
+               admin: true,
+               activated: true,
+               activated_at: Time.zone.now)
 
 # 追加のユーザーをまとめて生成する
 99.times do |n|
@@ -23,5 +27,7 @@ Circle.create!(name: "雷門中サッカー部",
                email: email,
                password:password,
                password_confirmation: password,
-               deadline: 2021-03-12)
+               deadline: "#{d.year}-#{d.month}-#{d.day}",
+               activated: true,
+               activated_at: Time.zone.now)
 end

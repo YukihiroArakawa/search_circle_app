@@ -3,25 +3,35 @@ tennis:
   email: michael@example.com
   password_digest: <%= Circle.digest('password') %>
   admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 baseball:
   name: Baseball Yankies
   email: backus@example.com
   password_digest: <%= Circle.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 lana:
   name: Lana Kane
   email: hands@example.gov
   password_digest: <%= Circle.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 malory:
   name: Malory Archer
   email: boss@example.gov
   password_digest: <%= Circle.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 <% 30.times do |n| %>
 circle_<%= n %>:
   name:  <%= "Circle #{n}" %>
   email: <%= "circle-#{n}@example.com" %>
   password_digest: <%= Circle.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 <% end %>

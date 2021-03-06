@@ -4,9 +4,16 @@ class SessionsController < ApplicationController
   def create
     circle = Circle.find_by(email: params[:session][:email].downcase)
     if circle&.authenticate(params[:session][:password])
-      log_in circle
-      params[:session][:remember_me] == '1' ? remember(circle) : forget(circle)
-      redirect_back_or circle
+      if circle.activated?
+        log_in circle
+        params[:session][:remember_me] == '1' ? remember(circle) : forget(circle)
+        redirect_back_or circle
+      else
+        message  = "Account not activated. "
+        message += "Check your email for the activation link."
+        flash[:warning] = message
+        redirect_to root_url
+      end
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'

@@ -65,6 +65,6 @@ class CircleTest < ActiveSupport::TestCase
   end
 
   test "authenticated? should return false for a user with nil digest" do
-    assert_not @circle.authenticated?('')
+    assert_not @circle.authenticated?(:remember,'')
   end
 end

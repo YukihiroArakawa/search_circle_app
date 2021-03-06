@@ -11,18 +11,13 @@ module SessionsHelper
     cookies.permanent[:remember_token] = circle.remember_token
   end
 
-  # 現在ログイン中のユーザーを返す(いる場合)
-  def current_circle
-    @current_circle ||= Circle.find_by(id: session[:circle_id]) if session[:circle_id]
-  end
-
   # 記憶トークンcookieに対応するユーザーを返す
-  def current_user
+  def current_circle
     if (circle_id = session[:circle_id])
-      @current_user ||= User.find_by(id: circle_id)
+      @current_user ||= Circle.find_by(id: circle_id)
     elsif (circle_id = cookies.signed[:circle_id])
       circle = Circle.find_by(id: circle_id)
-      if circle&.authenticated?(cookies[:remember_token])
+      if circle&.authenticated?(:remember,cookies[:remember_token])
         log_in circle
         @current_circle = circle
       end
