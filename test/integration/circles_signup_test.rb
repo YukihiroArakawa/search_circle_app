@@ -24,5 +24,6 @@ class CirclesSignupTest < ActionDispatch::IntegrationTest
     end
     follow_redirect!
     assert_template 'circles/show'
+    assert is_logged_in?
   end
 end

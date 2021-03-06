@@ -12,6 +12,7 @@ class CirclesController < ApplicationController
   def create 
     @circle = Circle.new(circle_params)
     if @circle.save
+      log_in @circle
       flash[:success] = "ご登録ありがとうございます！"
       redirect_to @circle
     else

@@ -1,2 +1,4 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+tennis:
+  name: Tennis club
+  email: michael@example.com
+  password_digest: <%= Circle.digest('password') %>
