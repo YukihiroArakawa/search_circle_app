@@ -1,7 +1,6 @@
 require "test_helper"
 
 class CirclesLoginTest < ActionDispatch::IntegrationTest
-
   def setup
     @circle = circles(:tennis)
   end
@@ -9,8 +8,8 @@ class CirclesLoginTest < ActionDispatch::IntegrationTest
   test "login with valid email/ invalid password" do
     get login_path
     assert_template 'sessions/new'
-    post login_path,params:{session:{email:@circle.email,
-                            password:"invalid"}}
+    post login_path, params: { session: { email: @circle.email,
+                                          password: "invalid" } }
     assert_not is_logged_in?
     assert_template 'sessions/new'
     assert_not flash.empty?
@@ -20,8 +19,8 @@ class CirclesLoginTest < ActionDispatch::IntegrationTest
 
   test "login with valid information followed by logout" do
     get login_path
-    post login_path,params:{session:{email: @circle.email,
-                                    password:'password'}}
+    post login_path, params: { session: { email: @circle.email,
+                                          password: 'password' } }
     assert is_logged_in?
     assert_redirected_to @circle
     follow_redirect!
@@ -36,7 +35,7 @@ class CirclesLoginTest < ActionDispatch::IntegrationTest
     delete logout_path
     follow_redirect!
     assert_select "a[href=?]", login_path
-    assert_select "a[href=?]", logout_path,      count: 0
+    assert_select "a[href=?]", logout_path, count: 0
     assert_select "a[href=?]", circle_path(@circle), count: 0
   end
 
@@ -53,7 +52,4 @@ class CirclesLoginTest < ActionDispatch::IntegrationTest
     log_in_as(@circle, remember_me: '0')
     assert_empty cookies[:remember_token]
   end
-
-
 end
-

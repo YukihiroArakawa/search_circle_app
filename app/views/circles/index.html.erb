@@ -1,0 +1,10 @@
+<% provide(:title, 'All circles') %>
+<h1>サークル一覧</h1>
+
+<%= will_paginate %>
+
+<ul class="circles">
+    <%= render @circles %>
+</ul>
+
+<%= will_paginate %>

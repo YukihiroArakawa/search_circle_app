@@ -2,3 +2,26 @@ tennis:
   name: Tennis club
   email: michael@example.com
   password_digest: <%= Circle.digest('password') %>
+  admin: true
+
+baseball:
+  name: Baseball Yankies
+  email: backus@example.com
+  password_digest: <%= Circle.digest('password') %>
+
+lana:
+  name: Lana Kane
+  email: hands@example.gov
+  password_digest: <%= Circle.digest('password') %>
+
+malory:
+  name: Malory Archer
+  email: boss@example.gov
+  password_digest: <%= Circle.digest('password') %>
+
+<% 30.times do |n| %>
+circle_<%= n %>:
+  name:  <%= "Circle #{n}" %>
+  email: <%= "circle-#{n}@example.com" %>
+  password_digest: <%= Circle.digest('password') %>
+<% end %>

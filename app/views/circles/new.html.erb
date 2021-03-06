@@ -1,59 +1,9 @@
 <% provide(:title, 'Sign up') %>
+<% provide(:button_text, 'アカウントの作成') %>
 <h1>Sign up</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_with(model: @circle, local: true) do |f| %>
-      <%= render 'shared/error_messages' %>
-
-      <%= f.label :name,'サークル名' %>
-      <%= f.text_field :name, class: 'form-control'  %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control'  %>
-
-      <%= f.label :password,'パスワード' %>
-      <%= f.password_field :password, class: 'form-control'  %>
-
-      <%= f.label :password_confirmation, "パスワード入力確認" %>
-      <%= f.password_field :password_confirmation, class: 'form-control'  %>
-
-      <%= f.label :genre,'ジャンル' %>
-      <%= f.select :genre, {'テニス':0,'ダンス':1,'イベント系':3,
-      '軽音':4,'ボランティア':5,'サッカー':6,'フットサル':7,'野球':8,'バスケ':9,
-      'バレーボール':10,'チア':11,'スキー':12,'バドミントン':13,'スキューバ':14,
-      'ハンドボール':15,'バレエ':16,'合気道':17,'スノボ':18,'クリケット':19,
-      '陸上':20,'ラケットボール':21,'総合格闘技':22,'合唱':23,'器楽':24,
-      '伝統芸能':25,'芸能文化':26,'メディア':27,'写真':28,'映像':29,
-      '社会科学研究':30,'応援団':31,'文化系その他':32,'芸術':33,'自然科学研究':34,
-      '人文科学研究':35,'表現':36},{include_blank:'選択してください'},
-      {class:'form-control',required: true} %>
-
-      <%= f.label :place,'活動場所(部室の場所)' %>
-      <%= f.text_field :place, class: 'form-control'  %>
-
-      <%= f.label :frequency,'活動頻度' %>
-      <%= f.text_field :frequency, class: 'form-control'  %>
-
-      <%= f.label :sex,'男女比率'%>
-      <%= f.select :sex,{'男:女=0:10':0,'男:女=1:9':1,'男:女=2:8':2,
-      '男:女=3:7':3,'男:女=4:6':4,'男:女=5:5':5,'男:女=6:4':6,
-      '男:女=7:3':7,'男:女=8:2':8,'男:女=9:1':9,'男:女=10:0':10},
-      {include_blank:'選択してください'},{class:'form-control',required:true} %>
-
-      <%= f.label :introduction,'サークル紹介文' %>
-      <%= f.text_field :introduction, class: 'form-control'  %>
-
-      <%= f.label :event,'新歓イベント情報' %>
-      <%= f.text_field :event, class: 'form-control'  %>
-
-      <%= f.label :deadline,'入会期限' %>
-      <%= f.date_field :deadline, class: 'form-control' %>
-
-      <%= f.label :sns,'外部SNSへのリンク' %>
-      <%= f.text_field :sns, class: 'form-control'  %>
-
-      <%= f.submit "アカウントを作成する", class: "btn btn-primary" %>
-    <% end %>
+    <%= render 'form' %>
   </div>
 </div>
