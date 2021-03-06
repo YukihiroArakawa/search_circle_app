@@ -13,15 +13,16 @@ class CirclesSignupTest < ActionDispatch::IntegrationTest
     assert_template 'circles/new'
   end
 
+
   test "valid singup information" do
     get signup_path
     assert_difference 'Circle.count',1 do
-      post circles_path,params:{circle:{name:"Example",
+      post circles_path,params:{circle:{name:"Example Circle",
                                 email:"circle@example.com",
                                 password: "password",
                                 password_confirmation:"password"}}
     end
     follow_redirect!
-    assert_template 'circles/new'
+    assert_template 'circles/show'
   end
 end
