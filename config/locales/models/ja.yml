@@ -1,0 +1,19 @@
+ja:
+activerecord:
+  #設定したいモデル名を指定
+    models:
+    circle: サークル
+    attributes:
+    circle:
+      name:サークル名
+      Email:メールアドレス
+      Password:パスワード
+      password_confirmation:パスワード再入力
+      genre:ジャンル
+      place:活動場所
+      frequency:活動頻度
+      sex:男女比率
+      introduction:紹介文
+      event:イベント情報
+      deadline:募集締め切り日
+      sns:外部SNSリンク

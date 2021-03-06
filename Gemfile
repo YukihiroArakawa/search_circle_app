@@ -6,7 +6,9 @@ ruby '2.6.6'
 gem 'rails', '~> 6.1.3'
 gem 'bcrypt',         '3.1.13'
 gem 'bootstrap-sass', '3.4.1'
+gem 'jquery-datetimepicker-rails'
 gem 'puma', '~> 5.0'
+gem 'rails-i18n'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker

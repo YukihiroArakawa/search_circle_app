@@ -1,0 +1,15 @@
+<% if @circle.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      エラーが <%= pluralize(@circle.errors.count, "件") %> あります
+    </div>
+    <ul>
+    <% @circle.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<!- #エラーメッセージの日本語化https://rakuda3desu.net/out-of-rakudas-rails-tutorial-i18n/ -->
