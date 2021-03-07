@@ -24,8 +24,39 @@
 <% end %>
 
 <% @circles.each do |circle| %>
-  <tr>
-    <td><%= circle.name %></td>
-    <td><%= circle.genre %></td>
-  </tr>
+  <div class="">
+			<p class=""><img src="/assets/<%=circle.name %>.png" height="150" ></p>
+			<p class=""><%=circle.name%></p>
+		<table class="">
+		  <tbody>
+		    <tr>
+          <td>ジャンル</td>
+          <td><%=circle.genre %></td>
+		    </tr>
+		    <tr>
+          <td>活動場所</td>
+          <td><%=circle.place %></td>
+		    </tr>
+		    <tr>
+          <td>活動頻度</td>
+          <td><%=circle.frequency%></td>
+		    </tr>
+		    <tr>
+          <td>男女比率</td>
+          <td><%=circle.sex%></td>
+		    </tr>
+		    <tr>
+          <td>サークル紹介文</td>
+          <td><%=circle.introduction%></td>
+		    </tr>
+		    <tr>
+          <td>イベント情報</td>
+          <td><%=circle.event%></td>
+		    </tr>
+        <tr>
+          <td>SNS</td>
+          <td><a href='<%=circle.sns%>'></a></td>
+        </tr>
+	    </tbody>
+	  </table>
 <% end %>
