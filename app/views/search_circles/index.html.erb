@@ -1,9 +1,10 @@
 <% provide(:title, 'SearchCircle') %>
 <% provide(:button_text, '検索の実行') %>
-<h1>サークル検索</h1>
+<h1>Town Circle</h1>
 
 <%= form_with url: search_path,method: :get, local: true do |f| %>
 
+  
   <%= f.label :name,'サークル名' %>
   <%= f.text_field :name, class: 'form-control' %>
 

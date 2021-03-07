@@ -1,11 +1,9 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "TownCircle", root_path, id: "logo" %>
+    <%= link_to "Town Circle", search_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",   root_path %></li>
         <li><%= link_to "Search",   search_path %></li>
-        <li><%= link_to "Help",   help_path %></li>
         <% if logged_in? %>
           <li><%= link_to "Circles", circles_path %></li>
           <li class="dropdown">
@@ -22,6 +20,7 @@
             </ul>
           </li>
         <% else %>
+          <li><%= link_to "Sign up", signup_path %></li>
           <li><%= link_to "Log in", login_path %></li>
         <% end %>
       </ul>
