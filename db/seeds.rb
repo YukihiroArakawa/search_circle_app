@@ -26,6 +26,8 @@ Circle.create!(name: "雷門中サッカー部",
                email: email,
                password:password,
                password_confirmation: password,
+               genre:Random.rand(0..35),
+               sex:Random.rand(0..10),
                activated: true,
                activated_at: Time.zone.now)
 end

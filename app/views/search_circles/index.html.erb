@@ -1,0 +1,31 @@
+<% provide(:title, 'SearchCircle') %>
+<% provide(:button_text, '検索の実行') %>
+<h1>サークル検索</h1>
+
+<%= form_with url: search_path,method: :get, local: true do |f| %>
+
+  <%= f.label :name,'サークル名' %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.label :genre,'ジャンル' %>
+      <%= f.select :genre, 
+        {'テニス':0,        'ダンス':1,      'イベント系':2,     '軽音':3,
+         'ボランティア':4,   'サッカー':5,     'フットサル':6,    '野球':7,
+         'バスケ':8,        'バレーボール':9,  'チア':10,        'スキー':11,
+         'バドミントン':12,  'スキューバ':13,   'ハンドボール':14, 'バレエ':15,
+         '合気道':16,       'スノボ':17,      'クリケット':18,   '陸上':19,
+         'ラケットボール':20, '総合格闘技':21,  '合唱':22,        '器楽':23,
+         '伝統芸能':24,      '芸能文化':25,    'メディア':26,     '写真':27,
+         '映像':28,         '社会科学研究':29, '応援団':30,      '文化系その他':31,
+         '芸術':32,         '自然科学研究':33, '人文科学研究':34, '表現':35},
+         {include_blank:'選択してください'},{class:'form-control',required: false} %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
+
+<% @circles.each do |circle| %>
+  <tr>
+    <td><%= circle.name %></td>
+    <td><%= circle.genre %></td>
+  </tr>
+<% end %>

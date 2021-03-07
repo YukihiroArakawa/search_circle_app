@@ -1,0 +1,2 @@
+module SearchCirclesHelper
+end
