@@ -14,4 +14,15 @@ class CircleMailerTest < ActionMailer::TestCase
     assert_match CGI.escape(circle.email),  mail.body.encoded
   end
 
+  test "password_reset" do
+    circle = circles(:tennis)
+    circle.reset_token = Circle.new_token
+    mail = CircleMailer.password_reset(circle)
+    assert_equal "Password reset", mail.subject
+    assert_equal [circle.email], mail.to
+    assert_equal ["noreply@example.com"], mail.from
+    assert_match circle.reset_token,        mail.body.encoded
+    assert_match CGI.escape(circle.email),  mail.body.encoded
+  end
+
 end

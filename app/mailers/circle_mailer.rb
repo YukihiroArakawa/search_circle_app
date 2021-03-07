@@ -15,9 +15,8 @@ class CircleMailer < ApplicationMailer
   #
   #   en.circle_mailer.password_reset.subject
   #
-  def password_reset
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def password_reset(circle)
+    @circle = circle
+    mail to: circle.email, subject: "Password reset"
   end
 end

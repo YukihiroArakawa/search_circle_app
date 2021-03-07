@@ -10,7 +10,9 @@ class CircleMailerPreview < ActionMailer::Preview
 
   # Preview this email at http://localhost:3000/rails/mailers/circle_mailer/password_reset
   def password_reset
-    CircleMailer.password_reset
+    circle = Circle.first
+    circle.reset_token = Circle.new_token
+    CircleMailer.password_reset(circle)
   end
 
 end
