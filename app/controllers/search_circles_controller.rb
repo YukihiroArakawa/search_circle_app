@@ -1,7 +1,17 @@
 class SearchCirclesController < ApplicationController
   def index
+    
     @circles = Circle.all
-    @circles = @circles.where('name LIKE ?',"%#{params[:name]}%").where(genre: "#{params[:genre]}") if params[:genre].present?
+    if params[:name].present? && params[:genre].empty?
+      puts "名前はあるが,ジャンルはempty"
+      @circles = @circles.where('name LIKE ?',"%#{params[:name]}%") 
+    elsif params[:name].present? && params[:genre].present?
+      puts "ジャンルはemptyでない"
+      @circles = @circles.where('name LIKE ?',"%#{params[:name]}%").where(genre: "#{params[:genre]}") 
+    else 
+      @circles = @circles.where(genre: "#{params[:genre]}") 
+    end
+
     render 'index'
   end
 
