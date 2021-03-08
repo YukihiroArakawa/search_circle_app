@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_07_081645) do
+ActiveRecord::Schema.define(version: 2021_03_08_132604) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2021_03_07_081645) do
     t.string "name"
     t.string "email"
     t.string "password"
-    t.integer "genre"
+    t.integer "genre_id"
     t.string "place"
     t.string "frequency"
     t.integer "sex"
@@ -62,6 +62,12 @@ ActiveRecord::Schema.define(version: 2021_03_07_081645) do
     t.string "reset_digest"
     t.datetime "reset_sent_at"
     t.index ["email"], name: "index_circles_on_email", unique: true
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

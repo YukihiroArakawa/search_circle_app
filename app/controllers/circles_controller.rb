@@ -50,7 +50,7 @@ class CirclesController < ApplicationController
 
   def circle_params
     params.require(:circle).permit(:name, :email, :password,
-                                   :password_confirmation, :genre, :place, :frequency,
+                                   :password_confirmation, :genre_id, :place, :frequency,
                                    :sex, :introduction, :event, :deadline, :sns)
   end
 
