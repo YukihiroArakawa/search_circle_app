@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  def new; end
+  def new 
+  end
 
   def create
     circle = Circle.find_by(email: params[:session][:email].downcase)

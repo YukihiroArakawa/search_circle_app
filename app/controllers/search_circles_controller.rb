@@ -12,7 +12,7 @@ class SearchCirclesController < ApplicationController
       @circles = @circles.where(genre: "#{params[:genre]}") 
     end
 
-    render 'index'
+  
   end
 
   def search_by_name
@@ -20,6 +20,6 @@ class SearchCirclesController < ApplicationController
   end
 
   def search_by_genre
-    
+
   end
 end

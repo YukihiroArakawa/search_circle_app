@@ -2,15 +2,13 @@
 <% provide(:button_text, '検索の実行') %>
 <h1>Town Circle</h1>
 
-<%= form_with url: search_path,method: :get, local: true do |f| %>
+<%= form_with url: search_path,method: :get, remote: true do |f| %>
   <%= f.label :name,'サークル名' %>
   <%= f.text_field :name, class: 'form-control' %>
 
-
   <%= f.label :genre,'ジャンル' %>
   <%= f.select :genre, 
-    {
-     'テニス':0,        'ダンス':1,      'イベント系':2,     '軽音':3,
+    {'テニス':0,        'ダンス':1,      'イベント系':2,     '軽音':3,
      'ボランティア':4,   'サッカー':5,     'フットサル':6,    '野球':7,
      'バスケ':8,        'バレーボール':9,  'チア':10,        'スキー':11,
      'バドミントン':12,  'スキューバ':13,   'ハンドボール':14, 'バレエ':15,
@@ -19,51 +17,9 @@
      '伝統芸能':24,      '芸能文化':25,    'メディア':26,     '写真':27,
      '映像':28,         '社会科学研究':29, '応援団':30,      '文化系その他':31,
      '芸術':32,         '自然科学研究':33, '人文科学研究':34, '表現':35},
-     {include_blank: true,prompt: "ジャンル未選択"},
+     {prompt: "ジャンル未選択"},
      {class:'form-control',required: false} %>
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
 
-<% @circles.each do |circle| %>
-  <div class="media">
-    <a class="media-left media-top" href="#">
-      <img src="/assets/<%=circle.name %>.jpeg" height="150" width="150" >
-    </a>
-    <div class="media-body">
-      <h4 class="media-heading"><%=circle.name%></h4>
-        <table class="table table-bordered table-dark">
-          <tbody>
-            <tr>
-              <td>ジャンル</td>
-              <td><%=circle.genre %></td>
-            </tr>
-            <tr>
-              <td>活動場所</td>
-              <td><%=circle.place %></td>
-            </tr>
-            <tr>
-              <td>活動頻度</td>
-              <td><%=circle.frequency%></td>
-            </tr>
-            <tr>
-              <td>男女比率</td>
-              <td><%=circle.sex%>:<%=10-circle.sex%></td>
-            </tr>
-            <tr>
-              <td>サークル紹介文</td>
-              <td><%=circle.introduction%></td>
-            </tr>
-            <tr>
-              <td>イベント情報</td>
-              <td><%=circle.event%></td>
-            </tr>
-            <tr>
-              <td>SNS</td>
-              <td><a href='<%=circle.sns%>'>外部SNSへ飛ぶ</a></td>
-            </tr>
-          </tbody>
-        </table>
-    </div>
-  </div>
-
-<% end %>
+<%= render 'searchResult' ,circles:@circles %> 
