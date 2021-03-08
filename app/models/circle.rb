@@ -1,5 +1,6 @@
 class Circle < ApplicationRecord
   attr_accessor :remember_token, :activation_token,:reset_token
+  belongs_to :genre
   before_save   :downcase_email
   before_create :create_activation_digest
   validates :name, presence: true, length: { maximum: 50 }
@@ -9,6 +10,7 @@ class Circle < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  
 
   # 渡された文字列のハッシュ値を返す
   def self.digest(string)
