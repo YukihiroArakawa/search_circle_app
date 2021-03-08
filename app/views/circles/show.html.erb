@@ -1,12 +1,44 @@
 
 <% provide(:title, @circle.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="circle_info">
-      <h1>
-        <%= gravatar_for @circle %>
-        <%= @circle.name %>
-      </h1>
-    </section>
-  </aside>
-</div>
+
+<div class="media">
+    <a class="media-left media-top" href="#">
+      <img src="/assets/<%=@circle.name %>.jpeg" height="150" width="150" >
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading"><%= @circle.name%></h4>
+      
+        <table class="table table-bordered table-dark">
+          <tbody>
+            <tr>
+              <td>ジャンル</td>
+              <td><%=@circle.genre %></td>
+            </tr>
+            <tr>
+              <td>活動場所</td>
+              <td><%=@circle.place %></td>
+            </tr>
+            <tr>
+              <td>活動頻度</td>
+              <td><%=@circle.frequency%></td>
+            </tr>
+            <tr>
+              <td>男女比率</td>
+              <td><%=@circle.sex%>:<%=10-@circle.sex%></td>
+            </tr>
+            <tr>
+              <td>サークル紹介文</td>
+              <td><%=@circle.introduction%></td>
+            </tr>
+            <tr>
+              <td>イベント情報</td>
+              <td><%=@circle.event%></td>
+            </tr>
+            <tr>
+              <td>SNS</td>
+              <td><a href=‘<%=@circle.sns%>'>外部SNSへ飛ぶ</a></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
