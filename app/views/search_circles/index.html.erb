@@ -19,7 +19,8 @@
      '伝統芸能':24,      '芸能文化':25,    'メディア':26,     '写真':27,
      '映像':28,         '社会科学研究':29, '応援団':30,      '文化系その他':31,
      '芸術':32,         '自然科学研究':33, '人文科学研究':34, '表現':35},
-     {include_blank: true},{class:'form-control',required: false} %>
+     {include_blank: true,prompt: "ジャンル未選択"},
+     {class:'form-control',required: false} %>
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
 
