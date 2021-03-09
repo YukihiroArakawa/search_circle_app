@@ -26,6 +26,12 @@
          '芸術':32,         '自然科学研究':33, '人文科学研究':34, '表現':35,  'DJ':36},
          {include_blank:'選択してください'},{class:'form-control',required: true} %>
 
+      <%= f.label :category,'カテゴリー' %>
+      <%= f.select :category, 
+        {スポーツ系':'スポーツ系','文化系':'文化系',
+        {include_blank:'選択してください'},
+        {class:'form-control',required: true} %>
+
       <%= f.label :place,'活動場所(部室の場所)' %>
       <%= f.text_field :place, class: 'form-control'  %>
 

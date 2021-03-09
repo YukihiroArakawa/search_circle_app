@@ -37,7 +37,7 @@ class PasswordResetsController < ApplicationController
 
   private
 
-    def circle_params
+    def circle_
       params.require(:circle).permit(:password, :password_confirmation)
     end
 
