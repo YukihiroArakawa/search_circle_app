@@ -7,15 +7,15 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>ジャンル</th>
-          <th>名前</th>
+          <th class="text-center">ジャンル</th>
+          <th class="text-center">名前</th>
         </tr>
       </thead>
-      <% @circles.each do |circle| %>
+      <% @circles_sport.each do |circle| %>
       <tbody>
         <tr>
-          <th><%=circle.genre.name %></th>
-          <td><%= link_to circle.name, circle %></td>
+          <td class="text-center"><%=circle.genre.name %></td>
+          <td class="text-center"><%= link_to circle.name, circle %></td>
         </tr>
       </tbody>
       <% end %>
@@ -29,17 +29,19 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>ジャンル</th>
-          <th>名前</th>
+          <th class="text-center">ジャンル</th>
+          <th class="text-center">名前</th>
         </tr>
       </thead>
+      <% @circles_culture.each do |circle| %>
       <tbody>
         <tr>
-          <th>ジャンル1</th>
-          <td>サークル1</td>
+          <td class="text-center"><%=circle.genre.name %></td>
+          <td class="text-center"><%= link_to circle.name, circle %></td>
         </tr>
       </tbody>
+      <% end %>
     </table>
-  </div> 
+  </div>
   
 </div>
