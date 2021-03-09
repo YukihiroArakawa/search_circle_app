@@ -1,0 +1,45 @@
+<div class="center jumbotron">
+  <h1>サークル一覧</h1>
+
+  
+  <h2>スポーツ系</h2>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ジャンル</th>
+          <th>名前</th>
+        </tr>
+      </thead>
+      <% @circles.each do |circle| %>
+      <tbody>
+        <tr>
+          <th><%=circle.genre.name %></th>
+          <td><%= link_to circle.name, circle %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+
+
+
+  <h2>文化系</h2>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ジャンル</th>
+          <th>名前</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>ジャンル1</th>
+          <td>サークル1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> 
+  
+</div>
