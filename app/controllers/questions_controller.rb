@@ -24,7 +24,8 @@ class QuestionsController < ApplicationController
     puts "--------------------"
     puts @circle_name
     puts "--------------------"
-    render 'question'
+    flash[:success] = "質問が投稿されました！"
+    redirect_to question_url :id => @circle_id, :name=>@circle_name
   end
 
   def update
@@ -34,7 +35,8 @@ class QuestionsController < ApplicationController
     questioned_circle= Circle.find_by(id:@circle_id)
     @circle_name=questioned_circle.name
     @questions = Question.where(circle_id:@circle_id)
-    render 'question'
+    flash[:success] = "「#{question.question_text}」に回答しました！"
+    redirect_to question_url :id => @circle_id, :name=>@circle_name
   end
 
   private

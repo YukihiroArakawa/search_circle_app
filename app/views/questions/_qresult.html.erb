@@ -14,7 +14,7 @@
                     <td>
                     <%= form_with(model: @question, local: true,method: :patch) do |f| %>
 
-                      <%= f.text_area :answer_text, class: 'form-control' %>
+                      <%= f.text_area :answer_text, class: 'form-control',value:question.answer_text %>
                       <%= f.hidden_field :circle_id, :value=> @circle_id %>
                       <%= f.hidden_field :question_text, :value=> question.question_text %>
                       <%= f.hidden_field :id, :value=> question.id %>
