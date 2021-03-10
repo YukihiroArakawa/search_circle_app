@@ -36,7 +36,12 @@
               <td>SNS</td>
               <td><a href=‘<%=@circle.sns%>'>外部SNSへ飛ぶ</a></td>
             </tr>
+            <tr>
+              <td>質問箱</td>
+              <td><%= link_to "#{@circle.name}さんの質問箱へ飛ぶ", question_path %></td>
+            </tr>
           </tbody>
         </table>
     </div>
   </div>
+
