@@ -1,0 +1,21 @@
+<% provide(:title, 'Question') %>
+<% provide(:button_text, '質問の投稿') %>
+
+<h1><%=@circle_name%>さんの質問箱</h1>
+
+  <%= form_with(model: @question, local: true) do |f| %>
+
+    <% if logged_in? %>
+
+    <% else %>
+      <%= f.label :question_text,'質問内容' %>
+      <%= f.text_area :question_text, class: 'form-control' %>
+
+      <%= f.hidden_field :circle_id, :value=> @circle_id %>
+      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    <% end %>
+
+    
+  <% end %>
+
+<%= render 'qresult' ,questions:@questions %>
