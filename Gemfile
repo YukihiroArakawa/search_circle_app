@@ -48,3 +48,5 @@ end
 group :production do
   gem 'pg', '1.1.4'
 end
+
+gem 'jquery-rails'

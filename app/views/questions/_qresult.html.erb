@@ -1,0 +1,20 @@
+<div class="qresult">
+  <% @questions.each do |question| %>
+    <div class="media">
+      <div class="media-body">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td>質問</td>
+                <td><%=question.question_text %></td>
+              </tr>
+              <tr>
+                <td>回答</td>
+                <td><%=question.answer_text %></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  <% end %>
+</div>

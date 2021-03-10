@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   delete '/logout',   to: 'sessions#destroy'
   get    '/search',   to: 'search_circles#index'
   get    '/question', to: 'questions#index'
+  post   '/question', to: 'questions#create'
+  resources :questions
   resources :circles
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
