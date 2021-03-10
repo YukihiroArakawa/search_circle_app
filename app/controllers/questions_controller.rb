@@ -27,8 +27,18 @@ class QuestionsController < ApplicationController
     render 'question'
   end
 
+  def update
+    question = Question.find(params[:id])
+    question.update!(question_params)
+    @circle_id=params[:circle_id]
+    questioned_circle= Circle.find_by(id:@circle_id)
+    @circle_name=questioned_circle.name
+    @questions = Question.where(circle_id:@circle_id)
+    render 'question'
+  end
+
   private
     def question_params
-      params.permit(:circle_id,:question_text,:answer_text)
+      params.permit(:id,:circle_id,:question_text,:answer_text)
     end
 end

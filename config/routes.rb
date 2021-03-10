@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get    '/search',   to: 'search_circles#index'
   get    '/question', to: 'questions#index'
   post   '/question', to: 'questions#create'
+  patch  '/question', to: 'questions#update'
   resources :questions
   resources :circles
   resources :account_activations, only: [:edit]

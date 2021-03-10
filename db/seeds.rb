@@ -47,7 +47,7 @@ Genre.create!(name:"DJ")
 #同志社大学のサークルのデータ
 #テニスサークル genre:0
 Circle.create!(name: "LemonSquash",
-               email: "#{Random.rand(0..10000000000)}example@railstutorial.org",
+               email: "example@railstutorial.org",
                password: "foobar",
                password_confirmation: "foobar",
                genre_id: 0,
