@@ -1,11 +1,7 @@
 class QuestionsController < ApplicationController
   def index 
-    puts "--------------------"
     @circle_id=params[:id]
     @circle_name=params[:name]
-    puts @circle_id
-    puts @circle_name
-    puts "--------------------"
     @questions = Question.where(circle_id:@circle_id)
     render 'question'
   end
@@ -17,13 +13,15 @@ class QuestionsController < ApplicationController
   def create
     question = Question.new(question_params)
     question.save!
+
+    #他のコントローラのパラメタを引き継ぐために,インスタンス変数へ代入
     @circle_id=params[:circle_id]
     questioned_circle= Circle.find_by(id:@circle_id)
     @circle_name=questioned_circle.name
+
+    #質問箱のビューに表示するサークルを指定するために実装
     @questions = Question.where(circle_id:@circle_id)
-    puts "--------------------"
-    puts @circle_name
-    puts "--------------------"
+   
     flash[:success] = "質問が投稿されました！"
     redirect_to question_url :id => @circle_id, :name=>@circle_name
   end
@@ -31,10 +29,15 @@ class QuestionsController < ApplicationController
   def update
     question = Question.find(params[:id])
     question.update!(question_params)
+
+    #ビューのパラメタを引き継ぐために,インスタンス変数へ代入
     @circle_id=params[:circle_id]
     questioned_circle= Circle.find_by(id:@circle_id)
     @circle_name=questioned_circle.name
+
+    #質問箱のビューに表示するサークルを指定するために実装
     @questions = Question.where(circle_id:@circle_id)
+
     flash[:success] = "「#{question.question_text}」に回答しました！"
     redirect_to question_url :id => @circle_id, :name=>@circle_name
   end
