@@ -5,9 +5,14 @@
           <table class="table table-bordered">
             <tbody>
               <tr>
+                <th>質問のジャンル</th>
+                <th><%=question.qgenre.genre %></th>
+              </tr>
+              <tr>
                 <td>質問</td>
                 <td><%=question.question_text %></td>
               </tr>
+              
               <!--ログインした際に,質問箱にアクセスできないバグが過去に発生
                   if-else-endを書き直したら動いたがハッキリとした原因は不明-->
               <% if logged_in? %>

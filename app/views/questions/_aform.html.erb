@@ -1,14 +1,37 @@
 <tr>
   <td>回答</td>
-  <td>
-      <%= form_with(model: @question, local: true,method: :patch) do |f| %>
-        
+   <td>
+     <%= form_with(model: @question, local: true,method: :patch) do |f| %>
+                        
         <%= f.text_area :answer_text, class: 'form-control',:value=>question.answer_text %>
         <%= f.hidden_field :circle_id, :value=> @circle_id %>
         <%= f.hidden_field :question_text, :value=> question.question_text %>
         <%= f.hidden_field :id, :value=> question.id %>
-                  
+                                  
         <%= f.submit "回答する", class: "btn btn-primary" %>
-      <% end %>
-  </td>
+     <% end %>
+     <br>
+    <br>
+     <%= link_to "削除", question, method: :delete,
+       data: { confirm: "質問「#{question.question_text}」を削除します。よろしいですか?" },
+       class:'btn btn-danger' ,circle_id:@circle_id%>
+   </td>
 </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

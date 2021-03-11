@@ -63,6 +63,6 @@ class QuestionsController < ApplicationController
 
   private
     def question_params
-      params.permit(:id,:circle_id,:question_text,:answer_text)
+      params.permit(:id,:circle_id,:question_text,:answer_text,:qgenre_id)
     end
 end

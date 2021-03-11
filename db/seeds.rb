@@ -2,6 +2,38 @@ require "date"
 d = Date.today
 Random.rand(0..35)
 
+#質問のジャンルを登録
+Qgenre.create!(id:1,genre:"飲み会")
+Qgenre.create!(id:2,genre:"お金")
+Qgenre.create!(id:3,genre:"雰囲気")
+Qgenre.create!(id:4,genre:"恋愛")
+Qgenre.create!(id:5,genre:"就活")
+Qgenre.create!(id:6,genre:"勉強")
+Qgenre.create!(id:7,genre:"その他")
+
+#質問を登録
+Question.create!(circle_id:1 ,
+question_text:"飲み会はどんな感じですか？激しい？",
+answer_text:"そこまで激しくないですよ！任意参加です！",qgenre_id:1)
+Question.create!(circle_id:1 ,
+question_text:"月にいくらくらいお金がかかりますか？",
+answer_text:"イベント代,飲食代込で15000円位ですかね？",qgenre_id:2)
+Question.create!(circle_id:1 ,
+question_text:"先輩の雰囲気はどの感じですか？",
+answer_text:"ノリの良い優しい人が多いです！",qgenre_id:3)
+Question.create!(circle_id:1 ,
+question_text:"飲み会はどんな感じですか？激しい？",
+answer_text:"そこまで激しくないですよ！任意参加です！",qgenre_id:4)
+Question.create!(circle_id:1 ,
+question_text:"ぶっちゃけカップル多いですか？",
+answer_text:"どうでしょう..?♡",qgenre_id:5)
+Question.create!(circle_id:1 ,
+question_text:"大学の勉強と両立可能ですか？",
+answer_text:"全然可能です！過去問あげます！",qgenre_id:6)
+Question.create!(circle_id:1 ,
+question_text:"テニス未経験なんですけど,ついていけますかね？",
+answer_text:"大丈夫！テニス未経験可です！",qgenre_id:7)
+
 #サークルのジャンルは全てで36種類
 Genre.create!(id:0,name:"テニス")
 Genre.create!(name:"ダンス")
