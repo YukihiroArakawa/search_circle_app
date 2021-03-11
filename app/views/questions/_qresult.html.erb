@@ -8,8 +8,23 @@
                 <td>質問</td>
                 <td><%=question.question_text %></td>
               </tr>
+              #ログインした際に,質問箱にアクセスできないバグが過去に発生
+              #if-else-endを書き直したら動いたがハッキリとした原因は不明
               <% if logged_in? %>
-                <%= render'aform'%>
+                <tr>
+                <td>回答</td>
+                  <td>
+                      <%= form_with(model: @question, local: true,method: :patch) do |f| %>
+                        
+                        <%= f.text_area :answer_text, class: 'form-control',:value=>question.answer_text %>
+                        <%= f.hidden_field :circle_id, :value=> @circle_id %>
+                        <%= f.hidden_field :question_text, :value=> question.question_text %>
+                        <%= f.hidden_field :id, :value=> question.id %>
+                                  
+                        <%= f.submit "回答する", class: "btn btn-primary" %>
+                      <% end %>
+                  </td>
+                </tr>
               <% else %>
                 <tr>
                   <td>回答</td>
