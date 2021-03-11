@@ -14,3 +14,6 @@ ActiveStorage.start()
 
 require("jquery")
 import "bootstrap"
+
+require("chartkick")
+require("chart.js")

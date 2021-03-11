@@ -20,6 +20,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'mail-iso-2022-jp'
 gem 'carrierwave'
 gem 'rmagick'
+gem "chartkick"
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
