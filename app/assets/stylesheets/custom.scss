@@ -80,15 +80,19 @@ p {
   }
 }
 
+.navbar {
+  background-color: black;
+}
+
 /* footer */
 
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid white;
-  color: white;
+  border-top: 1px solid black;
+  color: black;
   a {
-    color: white;
+    color: black;
     &:hover {
       color: $gray-darker;
     }

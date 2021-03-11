@@ -21,6 +21,8 @@ gem 'mail-iso-2022-jp'
 gem 'carrierwave'
 gem 'rmagick'
 gem "chartkick"
+gem 'jquery-rails'
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -50,4 +52,3 @@ group :production do
   gem 'pg', '1.1.4'
 end
 
-gem 'jquery-rails'

@@ -14,11 +14,12 @@
         {class:'form-control',required: true} %>
 
       <%= f.label :question_text,'質問内容' %>
-      <%= f.text_area :question_text, class: 'form-control' %>
+      <%= f.text_area :question_text, class: 'form-control',required: true %>
 
       <%= f.hidden_field :circle_id, :value=> @circle_id %>
       <%= f.submit yield(:button_text), class: "btn btn-primary" %>
     
   <% end %>
 <% end %>
+<br>
 <%= render 'qresult' ,questions:@questions %>
