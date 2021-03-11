@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get    '/question', to: 'questions#index'
   post   '/question', to: 'questions#create'
   patch  '/question', to: 'questions#update'
+  delete '/question', to: 'questions#destroy'
   resources :questions
   resources :circles
   resources :account_activations, only: [:edit]
