@@ -3,18 +3,22 @@
 
 <h1><%=@circle_name%>さんの質問箱</h1>
 
+<% if !logged_in? %>
   <%= form_with(model: @question, local: true) do |f| %>
 
-    <% if logged_in? %>
+      <%= f.label :qgenre_id,'質問のジャンル' %>
+      <%= f.select :qgenre_id, 
+        {'飲み会':1, 'お金':2,     '雰囲気':3,     '恋愛':4,
+        '就活':5,   '勉強':6,     'その他':7},
+        {include_blank:'選択してください'},
+        {class:'form-control',required: true} %>
 
-    <% else %>
       <%= f.label :question_text,'質問内容' %>
       <%= f.text_area :question_text, class: 'form-control' %>
 
       <%= f.hidden_field :circle_id, :value=> @circle_id %>
       <%= f.submit yield(:button_text), class: "btn btn-primary" %>
-    <% end %>
-
+    
   <% end %>
-
+<% end %>
 <%= render 'qresult' ,questions:@questions %>

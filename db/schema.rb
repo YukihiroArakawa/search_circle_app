@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_052213) do
+ActiveRecord::Schema.define(version: 2021_03_11_043550) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -71,12 +71,19 @@ ActiveRecord::Schema.define(version: 2021_03_10_052213) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "qgenres", force: :cascade do |t|
+    t.string "genre"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "questions", force: :cascade do |t|
     t.integer "circle_id"
     t.string "question_text"
     t.string "answer_text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "qgenre_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

@@ -1,0 +1,2 @@
+class Qgenre < ApplicationRecord
+end
