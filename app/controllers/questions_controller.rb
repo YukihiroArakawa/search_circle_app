@@ -3,6 +3,31 @@ class QuestionsController < ApplicationController
     @circle_id=params[:id]
     @circle_name=params[:name]
     @questions = Question.where(circle_id:@circle_id)
+
+    @q_drink_count = @questions.where(qgenre_id:1).count
+    @q_money_count = @questions.where(qgenre_id:2).count
+    @q_mood_count = @questions.where(qgenre_id:3).count
+    @q_love_count = @questions.where(qgenre_id:4).count
+    @q_job_count = @questions.where(qgenre_id:5).count
+    @q_study_count = @questions.where(qgenre_id:6).count
+    @q_other_count = @questions.where(qgenre_id:7).count
+    @q_total_count = @q_drink_count + @q_money_count\
+                    + @q_mood_count + @q_love_count\
+                    + @q_job_count  + @q_study_count + @q_other_count
+    
+
+    @chart = [['お酒', @q_drink_count], ['お金', @q_money_count],['雰囲気',@q_mood_count],['恋愛',@q_love_count],['就活',@q_job_count],['勉強',@q_study_count],['その他',@q_other_count]]
+    #@chart = {'2019-06-01' => 100, '2019-06-02' => 200, '2019-06-03' => 150}
+    
+    puts "*******************************************"
+    puts "質問の内訳\r
+          お酒  : #{@q_drink_count}件 \r
+          お金  : #{@q_money_count}件 \r
+          雰囲気 : #{@q_mood_count}件 \r
+          恋愛  : #{@q_love_count}件 \r
+          就活 : #{@q_job_count}件 \r
+          勉強 : #{@q_study_count}件 \r
+          その他 : #{@q_other_count}件 \r"
     render 'question'
   end
 

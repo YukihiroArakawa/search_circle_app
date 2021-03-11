@@ -1,0 +1,33 @@
+<br>
+  <h3>質問の内訳</h3>
+  <br>
+  <%= pie_chart @chart %>
+  <br>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>合計</th>
+          <th>お酒</th>
+          <th>お金</th>
+          <th>雰囲気</th>
+          <th>恋愛</th>
+          <th>就活</th>
+          <th>勉強</th>
+          <th>その他</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th><%=@q_total_count%></th>
+          <th><%=@q_drink_count%></th>
+          <td><%=@q_money_count%></td>
+          <td><%=@q_mood_count%></td>
+          <td><%=@q_love_count%></td>
+          <td><%=@q_job_count%></td>
+          <td><%=@q_study_count%></td>
+          <td><%=@q_other_count%></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

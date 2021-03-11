@@ -1,4 +1,9 @@
 <div class="qresult">
+
+  <% if logged_in?%>
+  <%=render 'qchart'%>
+  <%end%>
+
   <% @questions.each do |question| %>
     <div class="media">
       <div class="media-body">
@@ -9,7 +14,7 @@
                 <th><%=question.qgenre.genre %></th>
               </tr>
               <tr>
-                <td>質問</td>
+                <td>質問内容</td>
                 <td><%=question.question_text %></td>
               </tr>
               
