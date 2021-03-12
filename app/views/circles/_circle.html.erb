@@ -1,8 +1,0 @@
-<li>
-  <%= gravatar_for circle, size: 50 %>
-  <%= link_to circle.name, circle %>
-  <% if current_circle.admin? && !current_circle?(circle) %>
-    | <%= link_to "delete", circle, method: :delete,
-                                  data: { confirm: "You sure?" } %>
-  <% end %>
-</li>

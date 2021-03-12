@@ -4,7 +4,9 @@ class CirclesController < ApplicationController
   before_action :admin_circle, only: :destroy
 
   def index
-    @circles = Circle.paginate(page: params[:page])
+    @circle = Circle.find(params[:id])
+    @microposts = @circle.microposts.paginate(page: params[:page])
+    @micropost = current_circle.microposts.build if logged_in?
   end
 
   def show
