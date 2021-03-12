@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get    'password_resets/new'
   get    'password_resets/edit'
   get    'sessions/new'
-  root   'circlelist#index'
+  root   'search_circles#index'
   get    '/list',     to: 'circlelist#index'
   get    '/help',     to: 'static_pages#help'
   get    '/about',    to: 'static_pages#about'

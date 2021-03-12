@@ -57,7 +57,7 @@
 
   <div class="col-md-8">
     <% if @circle.microposts.any? %>
-      <h3>Microposts (<%= @circle.microposts.count %>)</h3>
+      <h3><%=@circle.name%>さんのブログ </h3>
       <ol class="microposts">
         <%= render @microposts %>
       </ol>

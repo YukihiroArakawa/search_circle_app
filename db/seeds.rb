@@ -2395,8 +2395,9 @@ Circle.create!(name: "同志社大学音楽研究会",
 
 
 #マイクロポストのデモデータ
-circles = Circle.order(:created_at).take(6)
-50.times do
-  content = Faker::Lorem.sentence(word_count: 5)
-  circles.each { |circle| circle.microposts.create!(content: content) }
-end
+circles = Circle.order(:created_at)
+circles.each {|circle| 
+circle.microposts.create!(content:"今日は飲み会をしました🍶")
+circle.microposts.create!(content:"今日は温泉に行きました♨")
+circle.microposts.create!(content:"4月9日 12:00から良心館203で新歓イベントです！")
+}
