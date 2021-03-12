@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
-gem 'aws-sdk-s3', require: false
+gem 'aws-sdk-s3', '~> 1.48',require: false
 gem 'image_processing'           
 gem 'mini_magick'
 gem 'active_storage_validations', '0.8.2'
