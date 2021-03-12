@@ -8,14 +8,18 @@
   - パスワード: foobar 
 
 ## 使用言語・OSなど
-- Ruby 2.6.6
-- Ruby on Rails 6.1.3
-- SQLite 1.4.1
-- Javascript 
-- jQuery
-- html
-- css
-- mac OS
+- バックエンド
+  - Ruby 2.6.6
+  - Ruby on Rails 6.1.3
+  - SQLite 1.4.1
+- フロントエンド
+  - Javascript 
+  - jQuery
+  - html
+  - css
+  - bootstrap 3
+- 開発環境 : mac OS
+- サーバ : Heroku
 
 ## 機能(非機能)一覧
 - サークル検索機能...サークル名,ジャンルでサークルを検索可能
