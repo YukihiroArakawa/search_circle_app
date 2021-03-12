@@ -9,6 +9,8 @@ class CirclesController < ApplicationController
 
   def show
     @circle = Circle.find(params[:id])
+    @microposts = @circle.microposts.paginate(page: params[:page])
+    @micropost = current_circle.microposts.build if logged_in?
   end
 
   def new

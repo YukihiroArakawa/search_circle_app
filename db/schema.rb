@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_11_043550) do
+ActiveRecord::Schema.define(version: 2021_03_12_022332) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -71,6 +71,15 @@ ActiveRecord::Schema.define(version: 2021_03_11_043550) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "microposts", force: :cascade do |t|
+    t.text "content"
+    t.integer "circle_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["circle_id", "created_at"], name: "index_microposts_on_circle_id_and_created_at"
+    t.index ["circle_id"], name: "index_microposts_on_circle_id"
+  end
+
   create_table "qgenres", force: :cascade do |t|
     t.string "genre"
     t.datetime "created_at", precision: 6, null: false
@@ -88,4 +97,5 @@ ActiveRecord::Schema.define(version: 2021_03_11_043550) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "microposts", "circles"
 end

@@ -2392,3 +2392,11 @@ Circle.create!(name: "同志社大学音楽研究会",
                activated: true,
                activated_at: Time.zone.now,
                category:"文化系")
+
+
+#マイクロポストのデモデータ
+circles = Circle.order(:created_at).take(6)
+50.times do
+  content = Faker::Lorem.sentence(word_count: 5)
+  circles.each { |circle| circle.microposts.create!(content: content) }
+end
