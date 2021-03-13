@@ -1,6 +1,6 @@
 class MicropostsController < ApplicationController
   before_action :logged_in_circle, only:[:create,:destroy]
-  before_action :correct_circle, only: :destroy
+  before_action :correct_circle, only: [:destroy]
 
   def create
     @micropost = current_circle.microposts.build(micropost_params)
