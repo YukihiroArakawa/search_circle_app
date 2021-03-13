@@ -38,7 +38,11 @@
             </tr>
             <tr>
               <td>質問箱</td>
-              <td><%= link_to "#{@circle.name}さんの質問箱へ飛ぶ", question_path(name:@circle.name,id:@circle.id) %></td>
+              <% if logged_in?%>
+              <td><%= link_to "#{@circle.name}さんの質問箱へ飛ぶ", edit_question_path(current_circle) %></td>
+              <% else %>
+              <td><%= link_to "#{@circle.name}さんの質問箱へ飛ぶ", question_path(@circle.id,@circle.name) %></td>
+              <% end %>
             </tr>
           </tbody>
         </table>

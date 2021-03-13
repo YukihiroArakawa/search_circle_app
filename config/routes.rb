@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   get    '/question', to: 'questions#index'
   post   '/question', to: 'questions#create'
   patch  '/question', to: 'questions#update'
+  post '/questions/:circle_id/edit', to:'questions#create'
+  patch '/questions/:circle_id/edit', to:'questions#update'
+  get   '/questions/:circle_id/edit',to:'questions#index'
   delete '/question', to: 'questions#destroy'
   get    '/answer',   to: 'questions#edit'
   resources :questions
