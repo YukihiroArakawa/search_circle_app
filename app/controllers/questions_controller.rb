@@ -1,5 +1,4 @@
 class QuestionsController < ApplicationController
-  before_action :correct_circle, only:[:edit,:update]
   
   def index 
     puts "This is index action of questions controller"
@@ -8,6 +7,8 @@ class QuestionsController < ApplicationController
       @circle_id = params[:format]
     elsif params[:circle_id]
       @circle_id = params[:circle_id] 
+    elsif current_circle
+      @circle_id = current_circle.id
     else
       @circle_id = params[:id]
     end
@@ -64,8 +65,11 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @circle = Circle.find_by(id:params[:id])
+    #@circle = Circle.find_by(id:params[:id])
+    #@circle = Circle.find(params[:id])
+    @circle = Circle.find(current_circle.id)
     puts "********************************"
+    puts "This is edit action of questions"
     puts @circle
     @circle_name=@circle.name
     puts @circle_name
