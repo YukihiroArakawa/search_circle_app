@@ -16,6 +16,12 @@ Question.create!(circle_id:1 ,
 question_text:"飲み会はどんな感じですか？激しい？",
 answer_text:"そこまで激しくないですよ！任意参加です！",qgenre_id:1)
 Question.create!(circle_id:1 ,
+question_text:"飲み会でどれくらい飲みますか？",
+answer_text:"しこたま飲みます！強制はしていません！",qgenre_id:1)
+Question.create!(circle_id:1 ,
+question_text:"コールとかあります？",
+answer_text:"一応あります！",qgenre_id:1)
+Question.create!(circle_id:1 ,
 question_text:"月にいくらくらいお金がかかりますか？",
 answer_text:"イベント代,飲食代込で15000円位ですかね？",qgenre_id:2)
 Question.create!(circle_id:1 ,
@@ -28,11 +34,26 @@ Question.create!(circle_id:1 ,
 question_text:"ぶっちゃけカップル多いですか？",
 answer_text:"どうでしょう..?♡",qgenre_id:5)
 Question.create!(circle_id:1 ,
+question_text:"彼氏ができました！祝って！",
+answer_text:"おめでとう！彼氏と一緒にサークル入りましょ！",qgenre_id:5)
+Question.create!(circle_id:1 ,
 question_text:"大学の勉強と両立可能ですか？",
 answer_text:"全然可能です！過去問あげます！",qgenre_id:6)
 Question.create!(circle_id:1 ,
 question_text:"テニス未経験なんですけど,ついていけますかね？",
 answer_text:"大丈夫！テニス未経験可です！",qgenre_id:7)
+Question.create!(circle_id:1 ,
+question_text:"硬式か軟式かどっちですか？",
+answer_text:"両方です",qgenre_id:7)
+Question.create!(circle_id:1 ,
+question_text:"元卓球部なんですけど大丈夫？",
+answer_text:"大丈夫！テニス未経験可です！",qgenre_id:7)
+Question.create!(circle_id:1 ,
+question_text:"テニスで全国大会経験しました",
+answer_text:"すごいw",qgenre_id:7)
+Question.create!(circle_id:1 ,
+question_text:"テニスの王子様好きですか？",
+answer_text:"好きです！",qgenre_id:7)
 
 #サークルのジャンルは全てで36種類
 Genre.create!(id:0,name:"テニス")

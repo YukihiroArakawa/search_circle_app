@@ -1,0 +1,42 @@
+<div class="qresult">
+  <%=render 'qchart'%>
+
+  <% @questions.each do |question| %>
+    <div class="media">
+      <div class="media-body">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th>質問のジャンル</th>
+                <th><%=question.qgenre.genre %></th>
+              </tr>
+              <tr>
+                <td>質問内容</td>
+                <td><%=question.question_text %></td>
+              </tr>
+              <tr>
+                <td>回答</td>
+                <td>
+                  <%= form_with(model: @question, local: true,method: :patch) do |f| %>
+                        
+                    <%= f.text_area :answer_text, class: 'form-control',:value=>question.answer_text %>
+                    <%= f.hidden_field :circle_id, :value=> @circle_id %>
+                    <%= f.hidden_field :question_text, :value=> question.question_text %>
+                    <%= f.hidden_field :id, :value=> question.id %>
+                                  
+                    <%= f.submit "回答する", class: "btn btn-primary" %>
+                  <% end %>
+                  <br>
+                  <br>
+                    <%= link_to "削除", question, method: :delete,
+                        data: { confirm: "質問「#{question.question_text}」を削除します。よろしいですか?" },
+                        class:'btn btn-danger' ,circle_id:@circle_id%>
+                 </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  <% end %>
+</div>
+
