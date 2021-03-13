@@ -7,3 +7,9 @@
     <%= render 'form' %>
   </div>
 </div>
+<br>
+<br>
+
+<%= link_to "サークルを削除する", @circle, method: :delete,
+    data: { confirm: "サークルを削除してもいいですか？" },
+    class: "btn btn-primary" %>
